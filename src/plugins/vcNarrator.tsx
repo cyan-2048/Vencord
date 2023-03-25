@@ -210,6 +210,7 @@ export default definePlugin({
     optionsCache: null as Record<string, PluginOptionsItem> | null,
 
     get options() {
+        if (typeof speechSynthesis === "undefined") return;
         return this.optionsCache ??= {
             voice: {
                 type: OptionType.SELECT,
